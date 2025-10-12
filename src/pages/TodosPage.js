@@ -1,49 +1,70 @@
 import React, { useState, useEffect } from 'react';
-import TodoForm from '../components/TodoForm';
 import TodoList from '../components/TodoList';
 import './TodosPage.css';
 
 function TodosPage() {
-  const [task, setTask] = useState('');
-  const [todos, setTodos] = useState(() => {
-    const stored = localStorage.getItem('todos');
-    return stored ? JSON.parse(stored) : [];
+  const [newTask, setNewTask] = useState('');
+  const [dueDate, setDueDate] = useState('');
+  const [tasks, setTasks] = useState(() => {
+    const storedTasks = localStorage.getItem('tasks');
+    return storedTasks ? JSON.parse(storedTasks) : [];
   });
 
   useEffect(() => {
-    localStorage.setItem('todos', JSON.stringify(todos));
-  }, [todos]);
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  }, [tasks]);
 
-  const handleSubmit = (e) => {
+  const handleAddTask = (e) => {
     e.preventDefault();
-    if (!task.trim()) return;
-    setTodos([...todos, { text: task.trim(), completed: false }]);
-    setTask('');
+
+    const newTaskObj = {
+      id: Date.now(),
+      text: newTask,
+      dueDate: dueDate || 'No date set',
+      completed: false,
+    };
+
+    setTasks([...tasks, newTaskObj]);
+    setNewTask('');
+    setDueDate('');
   };
 
-  const handleToggleComplete = (index) => {
-    const updated = [...todos];
-    updated[index].completed = !updated[index].completed;
-    setTodos(updated);
+  const handleDeleteTask = (id) => {
+    setTasks(tasks.filter((task) => task.id !== id));
   };
 
-  const handleDelete = (index) => {
-    const updated = todos.filter((_, i) => i !== index);
-    setTodos(updated);
+  const handleToggleComplete = (id) => {
+    setTasks((prevTasks) =>
+      prevTasks.map((task) =>
+        task.id === id ? { ...task, completed: !task.completed } : task
+      )
+    );
   };
 
   return (
     <div className="todos-page">
-      <h2>My Tasks</h2>
-      <TodoForm
-        task={task}
-        setTask={setTask}
-        handleSubmit={handleSubmit}
-      />
+      <h1>Task Manager</h1>
+
+      <form onSubmit={handleAddTask}>
+        <input
+          type="text"
+          placeholder="Enter a task"
+          value={newTask}
+          onChange={(e) => setNewTask(e.target.value)}
+          required
+        />
+        <input
+          type="date"
+          value={dueDate}
+          onChange={(e) => setDueDate(e.target.value)}
+        />
+        <button type="submit">Add Task</button>
+      </form>
+
       <TodoList
-        todos={todos}
+        todos={tasks}
+        onDelete={handleDeleteTask}
         onToggleComplete={handleToggleComplete}
-        onDelete={handleDelete}
       />
     </div>
   );
