@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import TodosPage from './pages/TodosPage';
+import ContactPage from './pages/ContactPage';
+import Navigation from './components/Navigation'; // ✅ Add this
 import './App.css';
 
 function App() {
@@ -17,9 +19,10 @@ function App() {
   const toggleDarkMode = () => setDarkMode(prev => !prev);
 
   return (
-    <div className="App">
+    <div className={`App ${darkMode ? 'dark-mode' : ''}`}>
+      <Navigation /> {/* ✅ Add this line */}
+      
       <header>
-        <h1>Task Manager</h1>
         <button onClick={toggleDarkMode}>
           {darkMode ? '🌞 Light Mode' : '🌙 Dark Mode'}
         </button>
@@ -28,6 +31,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/todos" element={<TodosPage />} />
+        <Route path="/contact" element={<ContactPage />} />
       </Routes>
     </div>
   );
