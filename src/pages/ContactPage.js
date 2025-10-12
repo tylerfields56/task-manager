@@ -1,10 +1,12 @@
 import React from 'react';
 
-export default function ContactPage() {
+function ContactPage() {
   return (
     <div>
-      <h2>Contact Us</h2>
-      <p>Email: contact@fieldsapp.com</p>
+      <h2>Contact Page</h2>
+      <p>Feel free to reach out at: your@email.com</p>
     </div>
   );
 }
+
+export default ContactPage;
