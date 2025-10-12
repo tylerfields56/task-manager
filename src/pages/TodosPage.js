@@ -5,25 +5,15 @@ import TodoList from '../components/TodoList';
 function TodosPage() {
   const [todos, setTodos] = useState([]);
 
-  const addTodo = (text) => {
-    const newTodo = {
-      id: Date.now(),
-      text: text,
-      completed: false,
-    };
-    setTodos([newTodo, ...todos]);
-  };
-
-  const deleteTodo = (id) => {
-    const updatedTodos = todos.filter((todo) => todo.id !== id);
-    setTodos(updatedTodos);
+  const addTodo = (todoText) => {
+    setTodos([...todos, todoText]);
   };
 
   return (
     <div>
-      <h2>My Tasks</h2>
+      <h2>My Todos</h2>
       <TodoForm onAddTodo={addTodo} />
-      <TodoList todos={todos} onDelete={deleteTodo} />
+      <TodoList todos={todos} />
     </div>
   );
 }
