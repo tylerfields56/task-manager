@@ -1,25 +1,31 @@
 import React from 'react';
 import TaskItem from './TaskItem';
 
-const TaskList = ({ tasks, onToggleComplete, onDelete }) => {
+function TaskList({ tasks, setTasks }) {
+  const toggleComplete = (id) => {
+    const updated = tasks.map(task =>
+      task.id === id ? { ...task, completed: !task.completed } : task
+    );
+    setTasks(updated);
+  };
+
+  const deleteTask = (id) => {
+    const updated = tasks.filter(task => task.id !== id);
+    setTasks(updated);
+  };
+
   return (
-    <ul style={{ listStyleType: 'none', padding: 0 }}>
-      {tasks.length === 0 ? (
-        <li style={{ textAlign: 'center', padding: '20px', color: '#888' }}>
-          No tasks yet. Add one!
-        </li>
-      ) : (
-        tasks.map((task) => (
-          <TaskItem
-            key={task.id}
-            task={task}
-            onToggleComplete={onToggleComplete}
-            onDelete={onDelete}
-          />
-        ))
-      )}
+    <ul>
+      {tasks.map((task) => (
+        <TaskItem
+          key={task.id}
+          task={task}
+          onToggle={() => toggleComplete(task.id)}
+          onDelete={() => deleteTask(task.id)}
+        />
+      ))}
     </ul>
   );
-};
+}
 
 export default TaskList;
