@@ -1,14 +1,13 @@
-import React from 'react';
-import TodoItem from './TodoItem';
+const TodoList = ({ todos }) => {
+  if (!todos || !Array.isArray(todos)) return <p>No tasks found.</p>;
 
-function TodoList({ todos }) {
   return (
     <ul>
       {todos.map((todo, index) => (
-        <TodoItem key={index} todo={todo} />
+        <li key={index}>{todo.text}</li>
       ))}
     </ul>
   );
-}
+};
 
 export default TodoList;

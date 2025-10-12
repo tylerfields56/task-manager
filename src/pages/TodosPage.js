@@ -1,21 +1,15 @@
 import React, { useState } from 'react';
-import TodoForm from '../components/TodoForm';
 import TodoList from '../components/TodoList';
 
-function TodosPage() {
-  const [todos, setTodos] = useState([]);
-
-  const addTodo = (todoText) => {
-    setTodos([...todos, todoText]);
-  };
+const TodosPage = () => {
+  const [todos, setTodos] = useState([]); // ✅ Initialize with empty array
 
   return (
     <div>
-      <h2>My Todos</h2>
-      <TodoForm onAddTodo={addTodo} />
-      <TodoList todos={todos} />
+      <h1>My Tasks</h1>
+      <TodoList todos={todos} /> {/* ✅ Pass todos as prop */}
     </div>
   );
-}
+};
 
 export default TodosPage;
