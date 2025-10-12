@@ -1,24 +1,35 @@
 import React, { useState } from 'react';
+import './TodoForm.css';
 
-function TodoForm({ onAddTodo }) {
-  const [input, setInput] = useState('');
+function TodoForm({ addTodo }) {
+  const [task, setTask] = useState('');
+  const [dueDate, setDueDate] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (input.trim() === '') return;
-    onAddTodo(input);
-    setInput('');
+    if (!task.trim()) return;
+
+    addTodo({ task, dueDate });
+    setTask('');
+    setDueDate('');
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="todo-form" onSubmit={handleSubmit}>
       <input
         type="text"
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-        placeholder="Add a task"
+        placeholder="Enter a new task..."
+        value={task}
+        onChange={(e) => setTask(e.target.value)}
+        className="task-input"
       />
-      <button type="submit">Add</button>
+      <input
+        type="date"
+        value={dueDate}
+        onChange={(e) => setDueDate(e.target.value)}
+        className="date-input"
+      />
+      <button type="submit" className="add-button">Add Task</button>
     </form>
   );
 }
