@@ -1,5 +1,5 @@
 import React from 'react';
-import TaskItem from './TaskItem';
+import TodoItem from './TodoItem';
 
 function TaskList({ tasks, setTasks }) {
   const toggleComplete = (id) => {
@@ -17,7 +17,7 @@ function TaskList({ tasks, setTasks }) {
   return (
     <ul>
       {tasks.map((task) => (
-        <TaskItem
+        <TodoItem
           key={task.id}
           task={task}
           onToggle={() => toggleComplete(task.id)}
