@@ -1,12 +1,12 @@
 import React from 'react';
 
-const HomePage = () => {
+function HomePage() {
   return (
     <div>
-      <h1>Welcome to Task Manager</h1>
-      <p>This is your productivity hub. Navigate to the Todo section to manage your tasks efficiently, or reach out via the Contact page.</p>
+      <h2>Welcome to the Task Manager</h2>
+      <p>Use the navigation above to manage your tasks or contact us!</p>
     </div>
   );
-};
+}
 
 export default HomePage;

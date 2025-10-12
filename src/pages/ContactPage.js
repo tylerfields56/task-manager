@@ -1,17 +1,12 @@
 import React from 'react';
 
-const ContactPage = () => {
+function ContactPage() {
   return (
     <div>
-      <h1>Contact</h1>
-      <p>If you have any questions, feel free to reach out:</p>
-      <ul>
-        <li>Email: yourname@example.com</li>
-        <li>GitHub: <a href="https://github.com/yourusername" target="_blank" rel="noreferrer">yourusername</a></li>
-        <li>LinkedIn: <a href="https://www.linkedin.com/in/yourprofile" target="_blank" rel="noreferrer">yourprofile</a></li>
-      </ul>
+      <h2>Contact Us</h2>
+      <p>Reach out to us if you have questions about the app!</p>
     </div>
   );
-};
+}
 
 export default ContactPage;

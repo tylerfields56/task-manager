@@ -1,17 +1,19 @@
 import React from 'react';
-import { Outlet, Link } from 'react-router-dom';
-import NavBar from './components/NavBar';
+import { Routes, Route } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import TodosPage from './pages/TodosPage';
+import ContactPage from './pages/ContactPage';
+import Navigation from './components/Navigation';
 
 function App() {
   return (
     <div>
-      <NavBar />
-      <h1>Task Manager</h1>
-      <nav>
-        <Link to="/todos">Todos</Link> | <Link to="/contact">Contact</Link>
-      </nav>
-      <hr />
-      <Outlet />
+      <Navigation />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/todos" element={<TodosPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+      </Routes>
     </div>
   );
 }

@@ -1,22 +1,12 @@
-import React, { useState } from 'react';
-import TodoList from '../components/TodoList';
-import AddTaskForm from '../components/AddTaskForm';
+import React from 'react';
 
-const TodosPage = () => {
-  const [todos, setTodos] = useState([]);
-
-  const addTodo = (text) => {
-    const newTodo = { text, completed: false };
-    setTodos([...todos, newTodo]);
-  };
-
+function TodosPage() {
   return (
     <div>
-      <h1>My Tasks</h1>
-      <AddTaskForm onAdd={addTodo} />
-      <TodoList todos={todos} />
+      <h2>Todo List</h2>
+      <p>This is where your todo functionality will go (add, edit, delete tasks).</p>
     </div>
   );
-};
+}
 
 export default TodosPage;
