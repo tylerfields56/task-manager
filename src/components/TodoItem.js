@@ -1,18 +1,22 @@
 import React from 'react';
 import './TodoItem.css';
 
-function TodoItem({ task, onToggle, onDelete }) {
-  if (!task) return null; // Prevent crash if task is undefined
+function TodoItem({ task, onDelete, onToggleComplete }) {
+  if (!task) return null;
+
+  const { id, text, dueDate, completed } = task;
 
   return (
-    <li className={task.completed ? 'completed' : ''}>
-      <span>{task.text}</span>
-      <span>Due: {task.dueDate}</span>
-      <button onClick={onToggle}>
-        {task.completed ? 'Undo' : 'Complete'}
-      </button>
-      <button onClick={onDelete}>Delete</button>
-    </li>
+    <div className={`todo-item ${completed ? 'completed' : ''}`}>
+      <input
+        type="checkbox"
+        checked={completed}
+        onChange={() => onToggleComplete(id)}
+      />
+      <span className="todo-text">{text}</span>
+      <span className="todo-date">{dueDate}</span>
+      <button onClick={() => onDelete(id)}>Delete</button>
+    </div>
   );
 }
 

@@ -6,8 +6,8 @@ function TodosPage() {
   const [newTask, setNewTask] = useState('');
   const [dueDate, setDueDate] = useState('');
   const [tasks, setTasks] = useState(() => {
-    const storedTasks = localStorage.getItem('tasks');
-    return storedTasks ? JSON.parse(storedTasks) : [];
+    const stored = localStorage.getItem('tasks');
+    return stored ? JSON.parse(stored) : [];
   });
 
   useEffect(() => {
@@ -16,6 +16,7 @@ function TodosPage() {
 
   const handleAddTask = (e) => {
     e.preventDefault();
+    if (!newTask.trim()) return;
 
     const newTaskObj = {
       id: Date.now(),
@@ -30,12 +31,12 @@ function TodosPage() {
   };
 
   const handleDeleteTask = (id) => {
-    setTasks(tasks.filter((task) => task.id !== id));
+    setTasks(tasks.filter(task => task.id !== id));
   };
 
   const handleToggleComplete = (id) => {
-    setTasks((prevTasks) =>
-      prevTasks.map((task) =>
+    setTasks(prev =>
+      prev.map(task =>
         task.id === id ? { ...task, completed: !task.completed } : task
       )
     );
@@ -44,7 +45,6 @@ function TodosPage() {
   return (
     <div className="todos-page">
       <h1>Task Manager</h1>
-
       <form onSubmit={handleAddTask}>
         <input
           type="text"

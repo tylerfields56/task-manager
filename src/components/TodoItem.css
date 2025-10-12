@@ -1,43 +1,46 @@
-/* TodoItem.css */
-
 .todo-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #f2f2f2;
-  padding: 10px 15px;
-  margin-bottom: 10px;
-  border-radius: 6px;
-  font-size: 16px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
 }
 
-.task-text {
-  flex-grow: 1;
-  font-weight: 500;
-  margin-left: 10px;
-}
-
-.due-date {
-  font-size: 14px;
-  color: #666;
-  margin-right: 10px;
-}
-
-.delete-button {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  margin-left: 10px;
-  font-size: 1.2rem;
-  color: #333;
-}
-
-.delete-button:hover {
-  color: red;
-}
-
-.completed .task-text {
+.todo-item.completed .todo-text {
   text-decoration: line-through;
-  opacity: 0.6;
+  color: #888;
+}
+
+.todo-text {
+  flex: 1;
+  margin-left: 1rem;
+  font-size: 1rem;
+}
+
+.todo-date {
+  margin-left: 1rem;
+  font-size: 0.875rem;
+  color: #555;
+}
+
+.todo-item input[type="checkbox"] {
+  transform: scale(1.2);
+}
+
+.todo-item button {
+  background-color: #dc3545;
+  border: none;
+  color: white;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 1rem;
+}
+
+.todo-item button:hover {
+  background-color: #c82333;
 }
