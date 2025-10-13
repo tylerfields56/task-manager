@@ -1,46 +1,59 @@
 .todos-page {
-  max-width: 600px;
-  margin: 2rem auto;
+  background-color: #121212;
+  color: #e0e0e0;
+  min-height: 100vh;
   padding: 2rem;
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  font-family: Arial, sans-serif;
+  text-align: center;
 }
 
 .todos-page h1 {
-  text-align: center;
-  margin-bottom: 1.5rem;
-  font-size: 2rem;
-  color: #333;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
 }
 
-form {
+.todo-input {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   gap: 1rem;
   margin-bottom: 2rem;
 }
 
-input[type="text"],
-input[type="date"] {
-  padding: 0.75rem;
-  font-size: 1rem;
-  border: 1px solid #ccc;
+.todo-input input {
+  padding: 0.5rem;
+  width: 200px;
   border-radius: 4px;
-  width: 100%;
+  border: 1px solid #444;
+  background-color: #1e1e1e;
+  color: #fff;
 }
 
-button[type="submit"] {
-  padding: 0.75rem;
-  font-size: 1rem;
-  background-color: #007bff;
+.todo-input button {
+  padding: 0.5rem 1rem;
+  background-color: #03dac6;
+  border: none;
+  border-radius: 4px;
+  color: #000;
+  cursor: pointer;
+}
+
+.todo-input button:hover {
+  background-color: #00bfa5;
+}
+
+.filter-buttons {
+  margin-bottom: 1rem;
+}
+
+.filter-buttons button {
+  margin: 0 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #555;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
 }
 
-button[type="submit"]:hover {
-  background-color: #0056b3;
+.filter-buttons button:hover {
+  background-color: #777;
 }

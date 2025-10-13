@@ -1,17 +1,17 @@
 import React from 'react';
 import TodoItem from './TodoItem';
+import './TodoList.css';
 
-function TodoList({ todos = [], onDelete, onToggleComplete }) {
-  if (!Array.isArray(todos)) return null;
-
+function TodoList({ tasks, onDelete, onToggleComplete, onEdit }) {
   return (
     <div className="todo-list">
-      {todos.map((todo) => (
+      {tasks.map((task) => (
         <TodoItem
-          key={todo.id}
-          task={todo}
+          key={task.id}
+          task={task}
           onDelete={onDelete}
           onToggleComplete={onToggleComplete}
+          onEdit={onEdit}
         />
       ))}
     </div>

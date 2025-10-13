@@ -1,40 +1,73 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import "./ContactForm.css";
 
-function ContactForm() {
+const ContactForm = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
+    firstName: "",
+    lastName: "",
+    email: "",
+    comments: "",
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Submitted:', formData);
-    alert('Message sent!');
-    setFormData({ name: '', email: '', message: '' });
+    alert("Form submitted!");
+    console.log(formData);
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Contact Us</h2>
+    <form className="contact-form" onSubmit={handleSubmit}>
+      <label>
+        First Name:
+        <input
+          type="text"
+          name="firstName"
+          value={formData.firstName}
+          onChange={handleChange}
+          placeholder="Enter your first name"
+        />
+      </label>
 
-      <label>Name:</label>
-      <input type="text" name="name" value={formData.name} onChange={handleChange} required />
+      <label>
+        Last Name:
+        <input
+          type="text"
+          name="lastName"
+          value={formData.lastName}
+          onChange={handleChange}
+          placeholder="Enter your last name"
+        />
+      </label>
 
-      <label>Email:</label>
-      <input type="email" name="email" value={formData.email} onChange={handleChange} required />
+      <label>
+        Email:
+        <input
+          type="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          placeholder="Enter your email"
+        />
+      </label>
 
-      <label>Message:</label>
-      <textarea name="message" value={formData.message} onChange={handleChange} required />
+      <label>
+        Comments:
+        <textarea
+          name="comments"
+          value={formData.comments}
+          onChange={handleChange}
+          placeholder="Your message..."
+        />
+      </label>
 
-      <button type="submit">Send</button>
+      <button type="submit">Submit</button>
     </form>
   );
-}
+};
 
 export default ContactForm;

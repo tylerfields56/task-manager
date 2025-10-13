@@ -1,0 +1,12 @@
+.contact-page {
+  padding: 2rem;
+  background-color: #121212;
+  color: #eee;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.contact-page h1 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}

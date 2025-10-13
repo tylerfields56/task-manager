@@ -1,70 +1,106 @@
-# Getting Started with Create React App
+# Task Manager App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Created by: Tyler Fields
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 📌 Project Overview
 
-### `npm start`
+This is a simple, clean, and interactive **Task Manager Web App** built using **React**. The app allows users to:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Add new tasks
+- Mark tasks as complete or incomplete
+- Edit existing tasks
+- Filter tasks by their status (All, Completed, Incomplete)
+- Delete tasks
+- Navigate across pages using React Router
+- Submit a contact form (as a controlled component)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+All features are implemented using React’s component-based structure and useState/useEffect hooks. The project is styled with custom CSS for a responsive and user-friendly interface.
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🛠️ Technologies Used
 
-### `npm run build`
+- React
+- JavaScript (ES6+)
+- HTML5
+- CSS3
+- React Router
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🧠 Core Features
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- ✅ Add task functionality
+- ✅ Mark task as complete/incomplete
+- ✅ Delete tasks
+- ✅ Edit tasks in-place
+- ✅ Filter tasks (All / Completed / Incomplete)
+- ✅ Form handling with controlled components
+- ✅ Basic client-side routing between Home, Todos, and Contact pages
+- ✅ Clean file structure and professional styling
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 💡 Future Improvements
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. **Persistent Storage** – Integrate localStorage or a backend (Firebase, Supabase, etc.) to save tasks between sessions.
+2. **Due Dates & Priorities** – Add the ability to assign deadlines and priority levels to tasks.
+3. **Responsive Design** – Further refine mobile/tablet views with media queries.
+4. **Dark Mode Toggle** – Add a toggle for light/dark themes.
+5. **User Authentication** – Allow users to log in and manage personal task lists.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 📝 How to Run This App
 
-## Learn More
+1. Clone the repository:
+   ```
+   git clone https://github.com/your-username/task-manager.git
+   cd task-manager
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2. Install dependencies:
+   ```
+   npm install
+   ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+3. Start the app:
+   ```
+   npm start
+   ```
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## ✉️ Contact Page Info
 
-### Analyzing the Bundle Size
+The Contact form is a **controlled React component**. It tracks the user's input through `useState` and is structured to prepare for future form submission handling or API integration.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## 📁 Project Structure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```
+src/
+├── components/
+│   ├── Header.js
+│   ├── TodoItem.js
+│   └── ...
+├── pages/
+│   ├── HomePage.js
+│   ├── TodosPage.js
+│   └── ContactPage.js
+├── App.js
+├── index.js
+└── styles/
+    ├── TodoItem.css
+    ├── TodosPage.css
+    └── ...
+```
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## ✅ Status
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+✔️ Project complete and ready for submission.
